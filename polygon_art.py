@@ -60,7 +60,17 @@ class Polygon:
             # draw the second polygon embedded inside the original
             if check:
                self.draw_polygon()
+               turtle.penup()
+               turtle.forward(self.size * (1 - reduction_ratio) / 2)
+               turtle.left(90)
+               turtle.forward(self.size * (1 - reduction_ratio) / 2)
+               turtle.right(90)
+               self.location[0] = turtle.pos()[0]
+               self.location[1] = turtle.pos()[1]
 
+               # adjust the size according to the reduction ratio
+               self.size *= reduction_ratio
+               self.draw_polygon()
     def get_size(self):
         self.size = random.randint(50, 150)
 
