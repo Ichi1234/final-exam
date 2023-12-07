@@ -33,7 +33,11 @@ class Polygon:
               self.num_sides = user_int%4 + 2
 
             check = False
-            if user_int > 4:
+            if user_int > 4 and user_int != 8:
+                check = True
+
+            if user_int == 8:
+                self.num_sides = random.randint(3, 5)
                 check = True
 
             self.get_size()
